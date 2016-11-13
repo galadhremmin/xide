@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "target": "es6",
+        "moduleResolution": "node",
+        "baseUrl": "src",
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": true,
+        "sourceMap": false,
+        "outDir": "scripts",
+        "jsx": "react"
+    }
+}
