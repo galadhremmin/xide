@@ -20,7 +20,11 @@ class Search extends React.Component<IProps, IState> {
   render() {
     return (
       <form method="get" action="" onSubmit={this.commit.bind(this)}>
-        <input type="search" value={this.state.term} onChange={this.changed.bind(this)} />
+        <div className="input-field">
+          <i className="material-icons prefix">search</i>
+          <input id="search-box" type="search" value={this.state.term} onChange={this.changed.bind(this)} />
+          <label htmlFor="search-box">Search term</label>
+        </div>
       </form>
     );
   }

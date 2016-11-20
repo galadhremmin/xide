@@ -42,17 +42,30 @@ class App extends React.Component<IAppProps, void> {
 
     return (
       <article>
-        <SearchInput onChanged={this.searchTermChanged.bind(this)} />
+        {this.props.data.completed ? (
+          <SearchInput onChanged={this.searchTermChanged.bind(this)} />
+        ): ''}
+
         {!this.props.data.completed ? (
-          <div className="progress">
-            <div className="determinate" style={{width: this.props.data.progressPercentage + '%'}}></div>
+          <div className="preloader-wrapper active">
+            <div className="spinner-layer spinner-red-only">
+              <div className="circle-clipper left">
+                <div className="circle"></div>
+              </div>
+              <div className="gap-patch">
+                <div className="circle"></div>
+              </div>
+              <div className="circle-clipper right">
+                <div className="circle"></div>
+              </div>
+            </div>
           </div>
         ) : (
           <div className="row">
             {this.props.data.selected.slice(from, to).map(index => (
               <Word word={this.props.data.all[index]} key={this.props.data.all[index].id} />)
             )}
-            </div>
+          </div>
         )}
         {this.props.data.selected.length > 0 ? (
           <Paginator onChanged={this.paginationChanged.bind(this)} page={this.props.data.page} numberOfPages={this.props.data.numberOfPages} />
